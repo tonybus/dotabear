@@ -4,7 +4,7 @@
 import dotalib
 import sys
 
-#match results for tonybus last game
+#match results for tonybus most current game
 matchResults = dotalib.parseMatch(dotalib.getMatchDetails(dotalib.getMatches(playerID = 76561198002507434)[0]))
 
 def padString(string, length):
