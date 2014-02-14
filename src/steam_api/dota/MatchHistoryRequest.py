@@ -1,3 +1,5 @@
+from steam_api.dota.dotaApiRequest import DotaApiRequest
+
 PARAM_NUM_RESULTS = "matches_requested"
 PARAM_TOURNAMENT_ONLY = "tournament_games_only"
 PARAM_START_AT_MATCH_ID = "start_at_match_id"
@@ -12,8 +14,6 @@ PARAM_PLAYER_NAME = "player_name"
 METHOD_NAME = "GetMatchHistory"
 __author__ = 'Russ'
 
-import dotaApiRequest
-
 
 class GameMode:
     _None, All_Pick, Captains_Mode, Random_Draft, Single_Draft, All_Random, Intro, Diretide, Reverse_Captains_Mode, The_Greeviling, Tutorial, Mid_Only, Least_Played, New_Player_Pool, Compendium_Matchmaking, Captains_Draft = range(16)
@@ -23,7 +23,7 @@ class Skill:
     Any, Normal, High, VeryHigh = range(4)
 
 
-class MatchHistoryRequest(dotaApiRequest.DotaApiRequest):
+class MatchHistoryRequest(DotaApiRequest):
     def __init__(self, key, responseFormat="json"):
         super(MatchHistoryRequest, self).__init__(methodName=METHOD_NAME, key=key, responseFormat=responseFormat)
         self.criteriaDict = {}
@@ -72,6 +72,6 @@ class MatchHistoryRequest(dotaApiRequest.DotaApiRequest):
         return self.__addIfNotNullOrEmpty(PARAM_NUM_RESULTS, numResults)
 
     def __addIfNotNullOrEmpty(self, paramName, value):
-        if value:
+        if value or isinstance(value, int):
             self.criteriaDict[paramName] = value
         return self
