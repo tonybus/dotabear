@@ -1,4 +1,4 @@
-from steam_api.dota.dotaApiRequest import DotaApiRequest
+from steam_api.dota.request.dotaApiRequest import DotaApiRequest
 
 PARAM_NUM_RESULTS = "matches_requested"
 PARAM_TOURNAMENT_ONLY = "tournament_games_only"

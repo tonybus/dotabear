@@ -1,8 +1,8 @@
+from steam_api.dota.request import dotaApiRequest
+
 MATCH_ID = "match_id"
 METHOD_NAME = "GetMatchDetails"
 __author__ = 'Russ'
-
-import dotaApiRequest
 
 
 class MatchDetailsRequest(dotaApiRequest.DotaApiRequest):
